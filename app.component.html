@@ -1,0 +1,21 @@
+<h2>{{ title }}</h2>
+<form>
+  <p>名稱：<input type="text" name="name" [(ngModel)]="name" /></p>
+
+  <p>內容：<input type="text" name="content" [(ngModel)]="content" /></p>
+  <p>
+    <button type="submit" (click)="SendMessage()">新增留言</button>
+  </p>
+</form>
+<table>
+  <thead>
+    <th>留言人</th>
+    <th>訊息內容</th>
+    <th>留言時間</th>
+  </thead>
+  <tbody *ngFor="let item of messages">
+    <td>{{ item.name }}</td>
+    <td>{{ item.content }}</td>
+    <td>{{ item.time | date: "yyyy/MM/dd HH:mm:ss" }}</td>
+  </tbody>
+</table>
